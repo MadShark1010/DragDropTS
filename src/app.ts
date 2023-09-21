@@ -21,9 +21,7 @@ class ProjectState {
     private projects: Project[] = [];
     private static instance: ProjectState;
 
-    private constructor() {
-
-    }
+    private constructor() {}
 
     static getInstance() {
         if (this.instance) {
@@ -109,7 +107,13 @@ class ProjectList {
         this.element.id = `${this.type}-projects`;
 
         projectState.addListener((projects: Project[]) => {
-            this.assignedProjects = projects;
+            const relevantProjects = projects.filter(prod => {
+                if (this.type === 'active') {
+                    return prod.status === ProjectStatus.Active;
+                }
+                return prod.status === ProjectStatus.Finsihed;
+            });
+            this.assignedProjects = relevantProjects;
             this.renderProjects();
         });
 
@@ -119,6 +123,7 @@ class ProjectList {
 
     private renderProjects() {
         const listEl = document.getElementById(`${this.type}-projects-list`)! as HTMLUListElement;
+        listEl.innerHTML = '';
         for (const projItem of this.assignedProjects) {
             const listItem = document.createElement('li');
             listItem.textContent = projItem.title;
