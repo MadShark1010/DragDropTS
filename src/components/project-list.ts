@@ -1,9 +1,9 @@
-import { DragTarget } from '../models/drag-drop-interfaces.js';
-import { Project, ProjectStatus } from '../models/project-model.js';
-import Cmp from './base-components.js';
-import { autobind } from '../decorators/autobind-decorator.js';
-import { projectState } from '../state/project-state.js';
-import { ProjectItem } from './project-item.js';
+import { DragTarget } from '../models/drag-drop-interfaces';
+import { Project, ProjectStatus } from '../models/project-model';
+import Cmp from './base-components';
+import { autobind } from '../decorators/autobind-decorator';
+import { projectState } from '../state/project-state';
+import { ProjectItem } from './project-item';
 
 //ProjectList Class
 export class ProjectList extends Cmp<HTMLDivElement, HTMLElement> implements DragTarget {

@@ -1,8 +1,8 @@
-import Cmp from './base-components.js'; //only available if the file you're exporting from has a default. Only exports the default function
+import Cmp from './base-components'; //only available if the file you're exporting from has a default. Only exports the default function
 // import { Validatable, validate } from '../utility/validation.js';
-import * as Validation from '../utility/validation.js'
-import { autobind as Autobind } from '../decorators/autobind-decorator.js';
-import { projectState } from '../state/project-state.js';
+import * as Validation from '../utility/validation'
+import { autobind as Autobind } from '../decorators/autobind-decorator';
+import { projectState } from '../state/project-state';
 
 //ProjectInput Class
 export class ProjectInput extends Cmp<HTMLDivElement, HTMLFormElement>{
